@@ -1,14 +1,41 @@
 <?php
-$dir = "dist/assets/photos/";  // Path to your image folder
-$images = glob($dir . "*.jpg");  // This will get all jpg files in the directory
-
-foreach($images as $image) {
-    echo '<div class="w-full p-1">
-            <div class="overflow-hidden h-full w-full">
-                <a href="' . $image . '" data-fancybox="gallery">
-                    <img alt="image" class="block h-full w-full object-cover object-center opacity-0 animate-fade-in transition duration-500 transform scale-100 hover:scale-110" src="' . $image . '" />
-                </a>
-            </div>
-          </div>';
-}
+$image_folder = 'dist/assets/photos/'; // Set the image folder path
+$images = glob($image_folder . '*.{jpg,jpeg,png,gif}', GLOB_BRACE); // Get all image files (you can add more extensions)
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Gallery</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+        }
+        .gallery img {
+            width: 200px;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <h1>Image Gallery</h1>
+    <div class="gallery">
+        <?php
+        foreach ($images as $image) {
+            echo '<img src="' . $image . '" alt="Image">';
+        }
+        ?>
+    </div>
+</body>
+</html>
