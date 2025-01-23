@@ -2,6 +2,7 @@
 <html lang="en" class="scroll-smooth">
 
 <head>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https:; script-src 'self' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com;">
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -103,11 +104,14 @@
                 class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg shadow-sm border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-neutral-900 dark:border-neutral-800 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                 placeholder="Leave a comment..." required></textarea>
             </div>
+                <!-- Google reCAPTCHA widget -->
+            <div class="g-recaptcha" data-sitekey="YOUR_SITE_KEY"></div>
             <button type="submit"
               class="py-3 px-5 text-sm font-medium text-center bg-black dark:bg-white text-white dark:text-black rounded-lg bg-primary-700 sm:w-fit hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
               Send message
             </button>
           </form>
+          <script src="https://www.google.com/recaptcha/api.js" async defer></script>
         </div>
       </section>
       <div class="col-span-2 md:col-span-1 flex relative">
